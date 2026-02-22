@@ -55,17 +55,13 @@ def scaled_dot_product_attention(
 
     d_k = K.shape[1]
 
-    # 1) Scores brutos: QK^T
-    scores = Q @ K.T  # (n_q, n_k)
+    scores = Q @ K.T 
 
-    # 2) Escalonamento por sqrt(d_k)
     scaled_scores = scores / np.sqrt(d_k)
 
-    # 3) Softmax por linha (cada query gera distribuição sobre as keys)
     attention_weights = softmax(scaled_scores, axis=1)
 
-    # 4) Combinação ponderada dos valores
-    output = attention_weights @ V  # (n_q, d_v)
+    output = attention_weights @ V
 
     if return_intermediates:
         return output, scores, scaled_scores, attention_weights
