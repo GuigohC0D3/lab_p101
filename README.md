@@ -88,5 +88,5 @@ O arquivo `test_attention.py` imprime:
 Se tudo estiver certo, aparece:
 
 ```text
-Teste executado com sucesso ✅
+Teste executado com sucesso!
 ```
